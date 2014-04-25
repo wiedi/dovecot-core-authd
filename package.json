@@ -1,0 +1,24 @@
+{
+  "author": "Sebastian Wiedenroth <wiedi@frubar.net>",
+  "bin": {
+    "dovecot-core-authd": "./server.js"
+  },
+  "dependencies": {
+    "carrier": "0.1.x",
+    "redis":   "0.10.x",
+    "mkdirp":  "0.4.x"
+  },
+  "description": "Redis lookup daemon for dovecot",
+  "keywords": [
+    "dovecot",
+    "redis"
+  ],
+  "licenses": [
+    {
+      "name": "BSD",
+      "url": "http://opensource.org/licenses/BSD-3-Clause"
+    }
+  ],
+  "name": "dovecot-core-authd",
+  "version": "0.0.1"
+}
