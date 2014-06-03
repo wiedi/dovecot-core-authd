@@ -17,7 +17,7 @@
 			<method_credential user="dovecot" group="dovecot" privileges='basic,net_privaddr' />
 			<method_environment>
 				<envvar name='PATH' value='/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin'/>
-				<envvar name="REDIS_SOCKET"        value="/var/run/redis/socket"/>
+				<envvar name="REDIS_SOCKET"        value="/var/run/redis.sock"/>
 				<envvar name="DOVECOT_AUTH_SOCKET" value="/var/run/dovecot-core-authd/socket"/>
 			</method_environment>
 		</method_context>
@@ -35,7 +35,7 @@
 		<stability value="Evolving"/>
 		<template>
 			<common_name>
-				<loctext xml:lang="C">doveot auth daemon for core.io</loctext>
+				<loctext xml:lang="C">dovecot auth daemon for core.io</loctext>
 			</common_name>
 		</template>
 

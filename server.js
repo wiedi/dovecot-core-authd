@@ -78,7 +78,8 @@ server.on('error', function(err) {
 })
 
 client.on("error", function (err) {
-	console.log("Error " + err);
+	console.log("Error " + err)
+	process.exit()
 })
 
 mkdirp.sync(path.dirname(config.socket), parseInt('700', 8), function(){})
