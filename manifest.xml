@@ -18,7 +18,7 @@
 			<method_environment>
 				<envvar name='PATH' value='/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin'/>
 				<envvar name="REDIS_SOCKET"        value="/tmp/redis.sock"/>
-				<envvar name="DOVECOT_AUTH_SOCKET" value="/var/run/dovecot-core-authd/socket"/>
+				<envvar name="DOVECOT_AUTH_SOCKET" value="/tmp/dovecot-core-authd.sock"/>
 			</method_environment>
 		</method_context>
 
