@@ -67,7 +67,7 @@ server.on('error', function(err) {
 		})
 		testSocket.on('error', function(err) {
 			if (err.code == 'ECONNREFUSED') {
-				fs.unlink(addr)
+				fs.unlink(addr, (err) => err && console.log(err))
 				self.listen(addr)
 			} else {
 				console.log('unixsocket: Socket error ', err)
