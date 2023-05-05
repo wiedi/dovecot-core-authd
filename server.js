@@ -33,7 +33,7 @@ var server = net.createServer(function(conn) {
 				break
 			}
 			if(args[1] == 'passdb') {
-				client.hget(config.hkey_prefix + args[2], config.key, function(err, reply) {
+				client.hget(config.hkey_prefix + args[2].split(/\s+/)[0], config.key, function(err, reply) {
 					if(err) {
 						conn.write('F\n')
 						return
