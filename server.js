@@ -21,19 +21,25 @@ var client = redis.createClient(config.redis_socket)
 var server = net.createServer(function(conn) {
 	carrier.carry(conn, function parser(line) {
 		var cmd  = line[0]
-		var args = line.slice(1)
+		var args = line.slice(1).split('\t')
 
 		switch(cmd) {
 		case 'H': // Hello
 			break
 		case 'L': // Lookup
-			args = args.split('/')
-			if(args.length < 3) {
+			if(args.length != 2) {
 				conn.write('F\n')
 				break
 			}
-			if(args[1] == 'passdb') {
-				client.hget(config.hkey_prefix + args[2], config.key, function(err, reply) {
+			var [key, user] = args
+
+			key = key.split('/')
+			if(key.length < 3) {
+				conn.write('F\n')
+				break
+			}
+			if(key[1] == 'passdb') {
+				client.hget(config.hkey_prefix + user, config.key, function(err, reply) {
 					if(err) {
 						conn.write('F\n')
 						return
