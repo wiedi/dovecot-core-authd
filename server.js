@@ -21,13 +21,18 @@ var client = redis.createClient(config.redis_socket)
 var server = net.createServer(function(conn) {
 	carrier.carry(conn, function parser(line) {
 		var cmd  = line[0]
-		var args = line.slice(1)
-		var [key, user] = args.split('\t')
+		var args = line.slice(1).split('\t')
 
 		switch(cmd) {
 		case 'H': // Hello
 			break
 		case 'L': // Lookup
+			if(args.length != 2) {
+				conn.write('F\n')
+				break
+			}
+			var [key, user] = args
+
 			key = key.split('/')
 			if(key.length < 3) {
 				conn.write('F\n')
